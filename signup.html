@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form" onsubmit=submit_form(event)>
+        <label for="" >User Name:</label>
+        <input type="text" name="" id="name" placeholder="enter name" value=""> <br>
+        <label for="">Email:</label>
+        <input type="email" name="" id="email" placeholder="enter email" value=""> <br>
+        <label for="">Password:</label>
+        <input type="password" name="" id="password" placeholder="enter password" value=""> <br>
+        <input type="submit" name="" id="">
+    </form>
+    <script>
+ 
+         function submit_form(e){
+            e.preventDefault();
+
+            let form=document.getElementById('form');
+         let name=form.name.value;
+         let email=form.email.value;
+         let password=form.password.value;
+         console.log(name);
+         
+         let credential={
+             name:form.name.value,
+             email:form.email.value,
+             password:form.password.value
+         }
+         
+       
+         if(localStorage.getItem('food_cart_signup')==null){
+    localStorage.setItem('food_cart_signup',JSON.stringify([]));
+}
+            // let user_name=document.createElement('p');
+            // user_name.innerText=credential.name;
+            // let user_emai=document.createElement('p');
+            // user_emai.innerText=credential.email;
+            // let user_password=document.createElement('p');
+            // user_password.innerText=credential.password;
+            let food_array=JSON.parse(localStorage.getItem('food_cart_signup'));
+            food_array.push(credential);
+            console.log(food_array)
+            localStorage.setItem('food_cart_signup',JSON.stringify(food_array));
+         }
+    </script>
+</body>
+</html>

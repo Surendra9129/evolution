@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cont"></div>
+    <script>
+        let added_product=JSON.parse(localStorage.getItem('food_cart'));
+         function show_cart(){
+             added_product.forEach((el)=>{
+                let cont=document.getElementById('cont');
+                cont.innerHTML=null;
+                let food_div=document.createElement('food_div');
+                let food_img=document.createElement('img');
+                food_img.src=el.strMealThumb;
+                let price=document.createElement('p');
+                price.innerText="59";
+                let description=document.createElement('p')
+                description.innerText="italian food";
+                food_div.append(food_img,price,description);
+                cont.append(food_div);
+
+             });
+         }
+         show_cart();
+    </script>
+</body>
+</html>
